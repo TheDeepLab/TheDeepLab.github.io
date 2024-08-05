@@ -204,7 +204,7 @@
         <div class="container">
             <h1>Unleash the Power of AI:<br>Transforming Businesses</h1>
             <p>Discover how our cutting-edge AI solutions can revolutionize your operations</p>
-            <a href="#" class="btn">Get Started</a>
+            <a href="#" class="btn" id="getStartedBtn">Get Started</a>
         </div>
     </section>
 
@@ -233,11 +233,11 @@
                     <ul>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <!-- <li><a href="#">Blog</a></li> -->
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Products</h3>
+                    <h3>Solutions</h3>
                     <ul>
                         <li><a href="#">AI Analytics</a></li>
                         <li><a href="#">Predictive Modeling</a></li>
@@ -257,7 +257,7 @@
                 <div class="footer-section">
                     <h3>Connect</h3>
                     <ul>
-                        <li><a href="#" id="contactLink">Contact Us</a></li>
+                        <li><a href="#" id="footerContactLink">Contact Us</a></li>
                         <li><a href="#">Twitter</a></li>
                         <li><a href="#">LinkedIn</a></li>
                     </ul>
@@ -283,13 +283,19 @@
         // Modal functionality
         var modal = document.getElementById("contactModal");
         var contactLink = document.getElementById("contactLink");
+        var getStartedBtn = document.getElementById("getStartedBtn");
+        var footerContactLink = document.getElementById("footerContactLink");
         var span = document.getElementsByClassName("close")[0];
-
-        contactLink.onclick = function(e) {
-            e.preventDefault();
-            modal.style.display = "block";
-        }
-
+      
+      function openModal(e) {
+          e.preventDefault();
+          modal.style.display = "block";
+      }
+      
+      contactLink.onclick = openModal;
+      getStartedBtn.onclick = openModal;
+      footerContactLink.onclick = openModal;
+      
         span.onclick = function() {
             modal.style.display = "none";
         }
@@ -332,10 +338,10 @@
         form.addEventListener("submit", handleSubmit);
 
         // Get Started button functionality
-        document.querySelector('.btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! Our team will contact you soon.');
-        });
+        // document.querySelector('.btn').addEventListener('click', function(e) {
+        //     e.preventDefault();
+        //     alert('Thank you for your interest! Our team will contact you soon.');
+        // });
     </script>
     
 </body>
