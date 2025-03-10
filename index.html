@@ -3,492 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="archet-verification" content="0f0b0bc6f5b1cf0a" />
-    <title>TheDeepLab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Angus';
-            src: url('path-to-angus-font-file.woff2') format('woff2'),
-                 url('path-to-angus-font-file.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            /* font-family: 'Inter', sans-serif; */
-            font-family: 'Roberto Mono', monospace;
-            margin: 0;
-            padding: 0;
-            color: white;
-            line-height: 1.6;
-            background-color: rgb(0, 20, 35);
-        }
-        h1, h2, h3, .logo {
-            font-family: 'Angus', monospace;
-            /* font-family: 'Roberto Mono', monospace; */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 20px 0;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #FFBF00;
-	    /* color: #708090; */
-        }
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-        }
-        /* .hero { */
-        /*     background-color: rgba(255, 255, 255, 0.05); */
-        /*     padding: 100px 0; */
-        /*     text-align: center; */
-        /* } */
-
-	.hero {
-            position: relative;
-            text-align: center;
-            padding: 100px 0;
-            overflow: hidden;
-	    background-image: url('hero-image.jpeg');
-            background-size: cover;
-	    background-position: center;
-	}
-
-	.hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"%3E%3Cpath fill="rgba(0,100,200,0.05)" fill-opacity="1" d="M0,32L48,53.3C96,75,192,117,288,138.7C384,160,480,160,576,138.7C672,117,768,75,864,74.7C960,75,1056,117,1152,122.7C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3Cpath fill="rgba(0,100,200,0.1)" fill-opacity="1" d="M0,192L48,181.3C96,171,192,149,288,154.7C384,160,480,192,576,192C672,192,768,160,864,154.7C960,149,1056,171,1152,181.3C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
-            background-size: cover;
-            background-position: center bottom;
-            z-index: -1;
-	}
-
-	.hero h1, .hero p {
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-	}
-
-	.hero h1 {
-	    /* color: #008080; */
-	    color: #398090;
-	}
-
-	.hero .btn {
-            position: relative;
-            z-index: 1;
-	}
-    
-        h1 {
-            font-size: 52px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1.2;
-	    /* color: #008080; */
-	    color: #708090;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #FFBF00;
-            color: rgb(0, 20, 35);
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #FFBF00;
-        }
-        /* .features { */
-        /*     padding: 80px 0; */
-        /* } */
-        /* .feature { */
-        /*     margin-bottom: 40px; */
-        /* } */
-
-	.features {
-            padding: 60px 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-	}
-	
-	.features .container {
-            max-width: 1200px;  /* Adjust this value as needed */
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-	}
-
-	.feature {
-            flex-basis: calc(33.333% - 40px);  /* For 3 columns, adjust if needed */
-            margin: 20px;
-            text-align: left;  /* Ensures text is left-aligned */
-	}
-
-	.feature h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-	}
-
-	.feature p {
-            font-size: 16px;
-            line-height: 1.6;
-	}
-
-	/* Responsive design for smaller screens */
-	@media (max-width: 768px) {
-            .feature {
-		flex-basis: calc(50% - 40px);  /* 2 columns on medium screens */
-            }
-	}
-
-	@media (max-width: 480px) {
-            .feature {
-		flex-basis: 100%;  /* Full width on small screens */
-            }
-	}
-
-	h2 {
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #708090;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        footer {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 60px 0 20px;
-            color: #a0a0a0;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-	    margin-bottom: 40px;
-        }
-        .footer-section {
-            margin-bottom: 30px;
-        }
-        .footer-section h3 {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #FFBF00;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        .footer-section ul li a {
-            color: #a0a0a0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer-section ul li a:hover {
-            color: #FFBF00;
-        }
-	.social-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        .footer-section a {
-            display: inline-flex;
-            align-items: center;
-            color: inherit;
-            text-decoration: none;
-        }
-	.copyright {
-            text-align: center;
-            font-size: 14px;
-            color: #777;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-	}
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: rgb(0, 30, 50);
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #FFBF00;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 8px;
-            color: white;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #FFBF00;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #contactForm {
-            display: flex;
-            flex-direction: column;
-        }
-        #contactForm input,
-        #contactForm textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #FFBF00;
-            border-radius: 4px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-        #contactForm button {
-            background-color: #FFBF00;
-            color: rgb(0, 20, 35);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        #contactForm button:hover {
-            background-color: #FFBF00;
-        }
-    </style>
+    <meta name="description" content="TheDeepLab - AI solutions for monitoring website behavior, optimizing lead generation, and enhancing customer conversion">
+    <title>TheDeepLab | AI-Powered Customer Conversion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2E415S683"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J2E415S683');
-</script>
-
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">TheDeepLab</div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#solutions">Solutions</a>
-                    <a href="#" id="contactLink">Contact</a>
-                </div>
-            </nav>
+<body class="font-sans antialiased text-gray-900 bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-10 bg-white bg-opacity-95 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-indigo-600">TheDeepLab</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition">Features</a>
+                <a href="#benefits" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition">Benefits</a>
+                <!-- Testimonials link removed since section is commented out -->
+                <a href="#contact" class="block px-3 py-2 text-indigo-600 font-medium hover:bg-indigo-50 transition">Contact Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 hover:text-indigo-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </header>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition">Features</a>
+                <a href="#benefits" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition">Benefits</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 text-indigo-600 font-medium hover:bg-indigo-50 transition">Contact Us</a>
+            </div>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Unleash the Power of AI and Transform Your Business</h1>
-            <p>Discover how our AI solutions can revolutionize your operations</p>
-            <a href="#" class="btn" id="getStartedBtn">Get Started</a>
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Convert Visitors into <span class="text-indigo-600">Loyal Customers</span> with AI
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        TheDeepLab's intelligent AI agents monitor visitor behavior, optimize lead generation, and enhance conversion strategies at every stage of your funnel.
+                    </p>
+                    <div class="bg-indigo-100 border-l-4 border-indigo-500 text-indigo-700 p-4 mb-8 rounded">
+                        <p class="font-medium">
+                            <span class="font-bold">NEW:</span> Enable custom AI agentic workflows that power conversational AI experiences for your website visitors.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="px-8 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition text-center">
+                            Request a Demo
+                        </a>
+                        <a href="#features" class="px-8 py-3 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 transition text-center">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" class="rounded-lg shadow-xl">
+                      <!-- Background -->
+                      <rect width="600" height="400" fill="#f4f7ff" rx="10" ry="10"/>
+                      
+                      <!-- Dashboard header -->
+                      <rect x="20" y="20" width="560" height="60" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="40" y="55" font-family="Arial" font-size="18" font-weight="bold" fill="#4f46e5">AI Insights Dashboard</text>
+                      
+                      <!-- Time period selector -->
+                      <rect x="420" y="30" width="140" height="40" rx="5" ry="5" fill="#f1f5f9" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="440" y="55" font-family="Arial" font-size="14" fill="#64748b">Last 30 days</text>
+                      <polygon points="540,45 550,40 550,50" fill="#64748b"/>
+                      
+                      <!-- Main metrics -->
+                      <rect x="20" y="100" width="180" height="100" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="40" y="130" font-family="Arial" font-size="14" fill="#64748b">Total Visitors</text>
+                      <text x="40" y="165" font-family="Arial" font-size="24" font-weight="bold" fill="#111827">25,432</text>
+                      <path d="M40,180 L70,180" stroke="#10b981" stroke-width="2"/>
+                      <text x="75" y="184" font-family="Arial" font-size="12" fill="#10b981">+12.5%</text>
+                      
+                      <rect x="210" y="100" width="180" height="100" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="230" y="130" font-family="Arial" font-size="14" fill="#64748b">Conversion Rate</text>
+                      <text x="230" y="165" font-family="Arial" font-size="24" font-weight="bold" fill="#111827">3.8%</text>
+                      <path d="M230,180 L260,180" stroke="#10b981" stroke-width="2"/>
+                      <text x="265" y="184" font-family="Arial" font-size="12" fill="#10b981">+0.7%</text>
+                      
+                      <rect x="400" y="100" width="180" height="100" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="420" y="130" font-family="Arial" font-size="14" fill="#64748b">Engagement Score</text>
+                      <text x="420" y="165" font-family="Arial" font-size="24" font-weight="bold" fill="#111827">78/100</text>
+                      <path d="M420,180 L450,180" stroke="#10b981" stroke-width="2"/>
+                      <text x="455" y="184" font-family="Arial" font-size="12" fill="#10b981">+5 pts</text>
+                      
+                      <!-- Conversion funnel -->
+                      <rect x="20" y="220" width="360" height="160" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="40" y="250" font-family="Arial" font-size="16" font-weight="bold" fill="#111827">Conversion Funnel</text>
+                      
+                      <!-- Funnel stages -->
+                      <rect x="40" y="270" width="320" height="25" rx="3" ry="3" fill="#4f46e5"/>
+                      <text x="50" y="288" font-family="Arial" font-size="12" fill="#ffffff">Visitors (100%)</text>
+                      
+                      <rect x="40" y="305" width="240" height="25" rx="3" ry="3" fill="#6366f1"/>
+                      <text x="50" y="323" font-family="Arial" font-size="12" fill="#ffffff">Product Views (75%)</text>
+                      
+                      <rect x="40" y="340" width="128" height="25" rx="3" ry="3" fill="#818cf8"/>
+                      <text x="50" y="358" font-family="Arial" font-size="12" fill="#ffffff">Add to Cart (40%)</text>
+                      
+                      <rect x="40" y="375" width="77" height="25" rx="3" ry="3" fill="#a5b4fc"/>
+                      <text x="50" y="393" font-family="Arial" font-size="12" fill="#ffffff">Purchase (24%)</text>
+                      
+                      <!-- AI Recommendations box -->
+                      <rect x="400" y="220" width="180" height="160" rx="5" ry="5" fill="#ffffff" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="420" y="250" font-family="Arial" font-size="16" font-weight="bold" fill="#111827">AI Recommendations</text>
+                      
+                      <rect x="420" y="270" width="140" height="50" rx="5" ry="5" fill="#f8fafc" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="430" y="290" font-family="Arial" font-size="12" fill="#334155">Optimize cart page for</text>
+                      <text x="430" y="308" font-family="Arial" font-size="12" fill="#334155">better conversion</text>
+                      
+                      <rect x="420" y="330" width="140" height="50" rx="5" ry="5" fill="#f8fafc" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="430" y="350" font-family="Arial" font-size="12" fill="#334155">Adjust pricing strategy</text>
+                      <text x="430" y="368" font-family="Arial" font-size="12" fill="#334155">for premium tier</text>
+                      
+                      <!-- AI agent icon -->
+                      <circle cx="560" cy="50" r="15" fill="#4f46e5"/>
+                      <text x="560" y="55" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">AI</text>
+                      
+                      <!-- Charts and graphs dots -->
+                      <circle cx="30" cy="30" r="3" fill="#4f46e5" opacity="0.3"/>
+                      <circle cx="50" cy="40" r="3" fill="#4f46e5" opacity="0.3"/>
+                      <circle cx="570" cy="380" r="3" fill="#4f46e5" opacity="0.3"/>
+                      <circle cx="550" cy="370" r="3" fill="#4f46e5" opacity="0.3"/>
+                      <circle cx="530" cy="360" r="3" fill="#4f46e5" opacity="0.3"/>
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <div class="feature">
-                <h2>Elevate Your Business</h2>
-                <p>Harness the potential of AI to streamline processes, enhance decision-making, and drive growth.</p>
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Powerful AI Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Our suite of AI tools helps businesses understand user behavior and optimize conversion funnels.
+                </p>
             </div>
-            <div class="feature">
-                <h2>Empowering Businesses with AI</h2>
-                <p>From predictive analytics to automated customer service, our AI solutions cover all aspects of modern business.</p>
-            </div>
-            <div class="feature">
-                <h2>Revolutionizing Operations</h2>
-                <p>Experience unprecedented efficiency and innovation with our state-of-the-art AI technologies.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg border-t-4 border-indigo-600">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-robot text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Agentic Workflows</h3>
+                    <p class="text-gray-600">
+                        Enable conversational AI experiences for your website visitors with customizable agentic workflows that intelligently engage with your content.
+                    </p>
+                    <span class="inline-block mt-3 text-sm px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full">Featured</span>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Visitor Behavior Analytics</h3>
+                    <p class="text-gray-600">
+                        AI agents track and analyze how visitors interact with your website, providing actionable insights to enhance user experience.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-funnel-dollar text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conversion Funnel Optimization</h3>
+                    <p class="text-gray-600">
+                        Identify bottlenecks in your sales funnel and receive AI-powered recommendations to maximize conversions at every stage.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Predictive Lead Scoring</h3>
+                    <p class="text-gray-600">
+                        Leverage machine learning to identify high-value prospects and prioritize your sales efforts for maximum ROI.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <!-- <li><a href="#">Blog</a></li> -->
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" class="rounded-lg shadow-xl">
+                      <!-- Background -->
+                      <rect width="600" height="500" fill="#f4f7ff" rx="10" ry="10"/>
+                      
+                      <!-- Chart title -->
+                      <text x="40" y="50" font-family="Arial" font-size="22" font-weight="bold" fill="#111827">Business Growth with AI Integration</text>
+                      
+                      <!-- Legend -->
+                      <rect x="40" y="70" width="12" height="12" fill="#4f46e5"/>
+                      <text x="60" y="82" font-family="Arial" font-size="14" fill="#64748b">With TheDeepLab AI</text>
+                      
+                      <rect x="220" y="70" width="12" height="12" fill="#a5b4fc"/>
+                      <text x="240" y="82" font-family="Arial" font-size="14" fill="#64748b">Industry Average</text>
+                      
+                      <!-- Chart axes -->
+                      <line x1="100" y1="120" x2="100" y2="400" stroke="#cbd5e1" stroke-width="2"/>
+                      <line x1="100" y1="400" x2="520" y2="400" stroke="#cbd5e1" stroke-width="2"/>
+                      
+                      <!-- Y-axis labels -->
+                      <text x="70" y="400" font-family="Arial" font-size="12" fill="#64748b" text-anchor="end">0%</text>
+                      <text x="70" y="330" font-family="Arial" font-size="12" fill="#64748b" text-anchor="end">20%</text>
+                      <text x="70" y="260" font-family="Arial" font-size="12" fill="#64748b" text-anchor="end">40%</text>
+                      <text x="70" y="190" font-family="Arial" font-size="12" fill="#64748b" text-anchor="end">60%</text>
+                      <text x="70" y="120" font-family="Arial" font-size="12" fill="#64748b" text-anchor="end">80%</text>
+                      
+                      <!-- X-axis labels -->
+                      <text x="100" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Jan</text>
+                      <text x="170" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Feb</text>
+                      <text x="240" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Mar</text>
+                      <text x="310" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Apr</text>
+                      <text x="380" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">May</text>
+                      <text x="450" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Jun</text>
+                      <text x="520" y="425" font-family="Arial" font-size="12" fill="#64748b" text-anchor="middle">Jul</text>
+                      
+                      <!-- Grid lines -->
+                      <line x1="100" y1="330" x2="520" y2="330" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="100" y1="260" x2="520" y2="260" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="100" y1="190" x2="520" y2="190" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="100" y1="120" x2="520" y2="120" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      
+                      <line x1="170" y1="120" x2="170" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="240" y1="120" x2="240" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="310" y1="120" x2="310" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="380" y1="120" x2="380" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="450" y1="120" x2="450" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      <line x1="520" y1="120" x2="520" y2="400" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,5"/>
+                      
+                      <!-- Data line - Industry Average -->
+                      <polyline points="100,350 170,345 240,340 310,335 380,330 450,325 520,320"
+                                fill="none" stroke="#a5b4fc" stroke-width="3"/>
+                      <circle cx="100" cy="350" r="5" fill="#a5b4fc"/>
+                      <circle cx="170" cy="345" r="5" fill="#a5b4fc"/>
+                      <circle cx="240" cy="340" r="5" fill="#a5b4fc"/>
+                      <circle cx="310" cy="335" r="5" fill="#a5b4fc"/>
+                      <circle cx="380" cy="330" r="5" fill="#a5b4fc"/>
+                      <circle cx="450" cy="325" r="5" fill="#a5b4fc"/>
+                      <circle cx="520" cy="320" r="5" fill="#a5b4fc"/>
+                      
+                      <!-- Data line - With TheDeepLab AI -->
+                      <polyline points="100,350 170,335 240,310 310,270 380,240 450,200 520,170"
+                                fill="none" stroke="#4f46e5" stroke-width="3"/>
+                      <circle cx="100" cy="350" r="5" fill="#4f46e5"/>
+                      <circle cx="170" cy="335" r="5" fill="#4f46e5"/>
+                      <circle cx="240" cy="310" r="5" fill="#4f46e5"/>
+                      <circle cx="310" cy="270" r="5" fill="#4f46e5"/>
+                      <circle cx="380" cy="240" r="5" fill="#4f46e5"/>
+                      <circle cx="450" cy="200" r="5" fill="#4f46e5"/>
+                      <circle cx="520" cy="170" r="5" fill="#4f46e5"/>
+                      
+                      <!-- Key metrics highlight -->
+                      <rect x="350" y="120" width="200" height="100" rx="10" ry="10" fill="white" stroke="#e0e4f1" stroke-width="1"/>
+                      <text x="370" y="150" font-family="Arial" font-size="18" font-weight="bold" fill="#111827">Key Results</text>
+                      
+                      <text x="370" y="180" font-family="Arial" font-size="14" fill="#64748b">Conversion Rate:</text>
+                      <text x="490" y="180" font-family="Arial" font-size="14" font-weight="bold" fill="#4f46e5">+35%</text>
+                      
+                      <text x="370" y="205" font-family="Arial" font-size="14" fill="#64748b">ROI Improvement:</text>
+                      <text x="490" y="205" font-family="Arial" font-size="14" font-weight="bold" fill="#4f46e5">3.2x</text>
+                      
+                      <!-- AI impact callout -->
+                      <rect x="120" y="170" width="160" height="70" rx="10" ry="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+                      <text x="140" y="195" font-family="Arial" font-size="12" fill="#1e40af">AI Integration</text>
+                      <text x="140" y="215" font-family="Arial" font-size="12" fill="#1e40af">Accelerated growth</text>
+                      <text x="140" y="235" font-family="Arial" font-size="12" fill="#1e40af">starting month 3</text>
+                      
+                      <!-- Dotted arrow pointing to growth curve -->
+                      <path d="M180,240 L240,300" stroke="#1e40af" stroke-width="1.5" stroke-dasharray="4,2"/>
+                      <polygon points="240,300 233,295 237,290" fill="#1e40af"/>
+                    </svg>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">
+                        Transform Your Customer Acquisition Strategy
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mr-3 mt-1">
+                                <svg class="h-5 w-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Increase Conversion Rates</h3>
+                                <p class="text-gray-600">
+                                    On average, our clients see a 35% improvement in conversion rates within the first three months.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mr-3 mt-1">
+                                <svg class="h-5 w-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Reduce Customer Acquisition Costs</h3>
+                                <p class="text-gray-600">
+                                    Optimize your marketing spend by focusing on channels and tactics that deliver the highest ROI.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mr-3 mt-1">
+                                <svg class="h-5 w-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Personalized Customer Journeys</h3>
+                                <p class="text-gray-600">
+                                    Deliver tailored experiences to each visitor based on their behavior and preferences.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mr-3 mt-1">
+                                <svg class="h-5 w-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Data-Driven Decisions</h3>
+                                <p class="text-gray-600">
+                                    Replace guesswork with actionable insights from our AI analytics platform.
+                                </p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Solutions</h3>
-                    <ul>
-                        <li><a href="#">AI Model Development</a></li>
-			<li><a href="#">AI Analytics</a></li>
-                        <li><a href="#">Predictive Modeling</a></li>
-                        <li><a href="#">AI Integration</a></li>
-			<li><a href="#">Machine Learning</a></li>
-                        <li><a href="#">Computer Vision</a></li>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (commented out)
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Businesses across industries have transformed their customer acquisition with TheDeepLab.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-quote-left text-4xl opacity-50"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "TheDeepLab's AI tools have revolutionized how we understand our customers. We've seen a 42% increase in conversion rates and cut our customer acquisition costs by nearly a third."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <span class="text-indigo-700 font-bold">SL</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Lewis</h4>
+                            <p class="text-gray-500">CMO, TechVision Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-quote-left text-4xl opacity-50"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "The insights we've gained from TheDeepLab's platform allowed us to optimize our entire funnel. Our sales team now focuses on the leads most likely to convert, resulting in a 55% boost in sales efficiency."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <span class="text-indigo-700 font-bold">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Rodriguez</h4>
+                            <p class="text-gray-500">Director of Sales, GrowthForce</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-indigo-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Customer Conversion?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Join innovative businesses that are leveraging AI to drive growth and maximize ROI.
+            </p>
+            <a href="#contact" class="px-8 py-3 bg-white text-indigo-600 font-medium rounded-md hover:bg-gray-100 transition inline-block">
+                Get Started Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+                    <p class="text-gray-600 mb-8">
+                        Interested in learning more about how TheDeepLab can help your business? Fill out the form and one of our AI experts will contact you for a personalized demo.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="text-indigo-600 mr-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>info@thedeeplab.ai</span>
+                        </div>
+                        <!-- Address commented out
+                        <div class="flex items-center">
+                            <div class="text-indigo-600 mr-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>123 Innovation Drive, Tech City, CA 94103</span>
+                        </div>
+                        -->
+                        <!-- Phone number commented out
+                        <div class="flex items-center">
+                            <div class="text-indigo-600 mr-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        </div>
+                        <div>
+                            <label for="company" class="block text-gray-700 mb-2">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition">
+                            Request Demo
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">TheDeepLab</a>
+                    <p class="mt-2 text-gray-400">
+                        AI agent based lead generation and customer conversion solutions
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <!-- Github link commented out
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    -->
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 TheDeepLab 
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <ul class="flex space-x-8">
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a></li>
                     </ul>
                 </div>
-                <!-- <div class="footer-section"> -->
-                <!--     <h3>Resources</h3> -->
-                <!--     <ul> -->
-                <!--         <li><a href="#">Documentation</a></li> -->
-                <!--         <li><a href="#">API Reference</a></li> -->
-                <!--         <li><a href="#">Community Forum</a></li> -->
-                <!--         <li><a href="#">Tutorials</a></li> -->
-                <!--     </ul> -->
-                <!-- </div> -->
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <ul>
-
-			<li><a href="#" id="footerContactLink">Contact Us</a></li>
-			<li>
-                          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)">
-                            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                            </svg>
-                            
-                          </a>
-
-
-			  
-                          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                            
-                          </a>
-			</li>
-
-                    </ul>
-                </div>
-		<div class="copyright">
-		  &copy; 2024 TheDeepLab
-		</div>
             </div>
         </div>
     </footer>
 
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Contact Us</h2>
-            <form id="contactForm" action="https://formspree.io/f/xdkngvgj" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Modal functionality
-        var modal = document.getElementById("contactModal");
-        var contactLink = document.getElementById("contactLink");
-        var getStartedBtn = document.getElementById("getStartedBtn");
-        var footerContactLink = document.getElementById("footerContactLink");
-        var span = document.getElementsByClassName("close")[0];
-      
-      function openModal(e) {
-          e.preventDefault();
-          modal.style.display = "block";
-      }
-      
-      contactLink.onclick = openModal;
-      getStartedBtn.onclick = openModal;
-      footerContactLink.onclick = openModal;
-      
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Form submission handling
-        var form = document.getElementById("contactForm");
-        
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var status = document.createElement("div");
-            status.style.marginTop = "10px";
-            form.appendChild(status);
-
-            var data = new FormData(event.target);
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                const result = await response.json();
-                if (response.ok) {
-                    status.innerHTML = "Thanks for your submission!";
-                    form.reset();
-                } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form";
-                }
-            } catch (error) {
-                status.innerHTML = "Oops! There was a problem submitting your form";
-            }
-        }
-        form.addEventListener("submit", handleSubmit);
-
-        // Get Started button functionality
-        // document.querySelector('.btn').addEventListener('click', function(e) {
-        //     e.preventDefault();
-        //     alert('Thank you for your interest! Our team will contact you soon.');
-        // });
-    </script>
-    
+    <script src="script.js"></script>
 </body>
 </html>
