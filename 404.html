@@ -11,21 +11,11 @@
     <link rel="icon" type="image/svg+xml" href="tdl-favicon.svg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2E415S683"></script>
+    <script src="js/components.js"></script>
 </head>
 <body class="font-sans antialiased text-gray-900 bg-gray-50 min-h-screen flex flex-col">
-    <!-- Navigation -->
-    <nav class="w-full z-10 bg-white bg-opacity-95 shadow-sm">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="/" class="text-2xl font-bold text-indigo-600">TheDeepLab</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="/#features" class="text-gray-700 hover:text-indigo-600 transition">Features</a>
-                <a href="/#benefits" class="text-gray-700 hover:text-indigo-600 transition">Benefits</a>
-                <a href="/#contact" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">Contact Us</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Header container -->
+    <div id="header-container"></div>
 
     <!-- 404 Content -->
     <div class="flex-grow flex items-center justify-center">
@@ -55,38 +45,9 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="/" class="text-2xl font-bold text-white">TheDeepLab</a>
-                    <p class="mt-2 text-gray-400">
-                        AI agent based lead generation and customer conversion solutions
-                    </p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <hr class="border-gray-700 my-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2025 TheDeepLab. All rights reserved.
-                </p>
-                <div class="mt-4 md:mt-0">
-                    <ul class="flex space-x-8">
-                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer container -->
+    <div id="footer-container"></div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
