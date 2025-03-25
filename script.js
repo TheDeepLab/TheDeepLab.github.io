@@ -118,16 +118,11 @@ ${company}`;
     
     // Add Google Analytics
     function initializeAnalytics() {
-        // This would typically be replaced with your actual Google Analytics or other tracking code
-        console.log('Analytics initialized');
-        
-        // Example Google Analytics code (replace with your actual GA code)
-        /*
+        // Google Analytics tracking code
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-        */
+        gtag('config', 'G-J2E415S683');
     }
     
     // Initialize analytics
