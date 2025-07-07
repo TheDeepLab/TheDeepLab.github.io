@@ -1,4 +1,3 @@
-// Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
     // Redirect from PRD.md or any unwanted URLs
     const blockedPaths = ['PRD.md', '.git', '.htaccess'];
@@ -22,99 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-    
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.add('hidden');
-        });
-    });
-    
-    // Handle form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Get form fields
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (!name || !email || !company || !message) {
-                alert('Please fill out all fields');
-                return;
-            }
-            
-            // Create the email body
-            const emailBody = `Hi, I would like to know more about your solutions and request a demo.
-
-${message}
-
-${name}
-${company}`;
-            
-            // Create the mailto URL with all parameters
-            const mailtoURL = `mailto:info@thedeeplab.ai?subject=Request a demo!&body=${encodeURIComponent(emailBody)}&from=${encodeURIComponent(email)}`;
-            
-            // Open the default email client
-            window.location.href = mailtoURL;
-            
-            // Reset the form after a short delay
-            setTimeout(() => {
-                contactForm.reset();
-            }, 500);
-        });
-    }
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Offset for fixed navbar
-                const navbarHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Add animation classes on scroll
-    function revealOnScroll() {
-        const elements = document.querySelectorAll('.reveal');
-        
-        elements.forEach(element => {
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150; // How many pixels of the element should be visible
-            
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    }
     
     // Add Google Analytics
     function initializeAnalytics() {
