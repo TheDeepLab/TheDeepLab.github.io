@@ -31,17 +31,8 @@ function injectFooter() {
     
     const footerHtml = `
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <div class="mb-6 md:mb-0">
-                    <a href="/" class="text-2xl font-bold text-white">TheDeepLab</a>
-                    <p class="mt-2 text-gray-400">
-                        The company behind Archet.ai
-                    </p>
-                </div>
-            </div>
-            <hr class="border-gray-700 my-8">
             <div class="text-center">
                 <p class="text-gray-400 text-sm">
                     &copy; ${currentYear} The Deep Lab, Inc.
